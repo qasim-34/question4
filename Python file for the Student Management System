@@ -1,0 +1,32 @@
+# student_management_system.py
+class Student:
+    def __init__(self, name, student_id, grade):
+        self.name = name
+        self.student_id = student_id
+        self.grade = grade
+
+    def get_details(self):
+        return f"Name: {self.name}, ID: {self.student_id}, Grade: {self.grade}"
+
+def add_student(student_list, student):
+    student_list.append(student)
+
+def remove_student(student_list, student_id):
+    for student in student_list:
+        if student.student_id == student_id:
+            student_list.remove(student)
+            return True
+    return False
+
+def main():
+    students = []
+    s1 = Student("Alice", "1", "A")
+    s2 = Student("Bob", "2", "B")
+    add_student(students, s1)
+    add_student(students, s2)
+    print([student.get_details() for student in students])
+    remove_student(students, "1")
+    print([student.get_details() for student in students])
+
+if __name__ == "__main__":
+    main()
